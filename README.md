@@ -1,15 +1,15 @@
-#### Methods for Extracting Content from Websites
+### Methods for Extracting Content from Websites
 
-###### Manual Copy and Paste
+##### Manual Copy and Paste
 - Suitable for small amounts of data.
 - Easy to use when data is easily accessible.
 
-###### Browser Extensions
+##### Browser Extensions
 - Tools like Magical can simplify the extraction process.
 - Easy to install and use directly in the browser.
 - Limited customization options.
 
-###### Web Scraping Tools
+##### Web Scraping Tools
 - Ideal for larger datasets and ongoing tasks.
 - Requires programming knowledge.
   
@@ -22,40 +22,41 @@
 	- Cheerio (for parsing HTML)
 	- Axios (for sending HTTP requests)
 
-###### No-Code Solutions
+##### No-Code Solutions
   - Platforms that allow users to extract data without coding skills.
   - Often require a subscription but can handle large amounts of data efficiently.
 
-###### APIs 
+##### APIs 
   - Some websites offer APIs for structured data access.
   - Provides reliable data but may have usage restrictions.
 
-##### Precautions
+#### Precautions
 
-###### Data Privacy
+##### Data Privacy
 Ensure consent before using personal data.
 
-###### Avoid Overloading Servers
+##### Avoid Overloading Servers
 Be mindful of the number of requests to prevent server crashes.
 
-#### Steps to Create a Web Scraper Using Python
+### Steps to Create a Web Scraper Using Python
 
-###### Identify the Data
+##### Identify the Data
    - Determine what data you want to extract and its purpose.
 
-###### Inspect the Website (optional)
+##### Inspect the Website (optional)
    - Use tools like `Selectorgadget` to understand the website's structure.
 
-###### Set Up Your Environment 
+##### Set Up Your Environment 
    - Create a project folder.
    - Install necessary libraries.
-##### Using Requests
+
+### Using Requests
 Install requests library for Python:
 ```bash
 pip install requests
 ```
 
-###### Fetch HTML Data
+##### Fetch HTML Data
 Use the Requests library to make an HTTP request:
 ```python
 import requests
@@ -67,20 +68,20 @@ resp = requests.get(target_url) #to get data from website
 html_content = response.text
 ```
 
-##### Using Beautifulsoup
+#### Using Beautifulsoup
 Install Beautifulsoup library for Python:
 ```bash
 pip install beautifulsoup4
 ```
 
-###### Parse HTML
+##### Parse HTML
 ```python
 from bs4 import BeautifulSoup
 
 soup = BeautifulSoup(resp.text, 'html.parser') #to get data from website
 ```
 
-###### Extract Data
+##### Extract Data
 Use methods like `find()` or `find_all()` to locate and extract the desired data. For more commands read [BeautifulSoup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/).
 For example:
 ```pyhton
@@ -90,7 +91,7 @@ for para in paragraphs:
 	print(para.get_text()) #To print the results.
 ```
 
-##### Using Selenium (if needed)
+#### Using Selenium (if needed)
 Some websites load content dynamically using **JavaScript**. In these cases, Selenium can be used to simulate a browser and retrieve the dynamically generated content.
 Selenium library & installation process is skiped here, just search for an online help for installation or go to [Selenium](https://www.selenium.dev/).
 ```pyhton
@@ -103,7 +104,7 @@ html_content = driver.page_source #To extract specific element
 driver.quit() #To end the Selenium process
 ```
 
-##### Store the Data
+#### Store the Data
 After extracting the content, you can store it in various formats (e.g., CSV, JSON, or a database).
 For example (storing in a CSV file):
 ```python
@@ -120,16 +121,16 @@ for page_source in html_content: #For Selenium #Verify the code before using
 	writer.writerow([pagesource.get_text()])
 ```
 
-#### Respect Website Load and Crawl Responsibly
-- ##### Rate Limiting:
+### Respect Website Load and Crawl Responsibly
+- #### Rate Limiting:
 Avoid overwhelming the server with too many requests in a short period. Implement a delay between requests.
 
-- ##### `robots.txt`
+- #### `robots.txt`
 Check the website’s `robots.txt` file to see if any restrictions are placed on web crawlers.
 To check visit `https://example.com/robots.txt`
 
-- ##### Use a User-Agent Header
+- #### Use a User-Agent Header
 Sometimes, websites block requests from non-browser clients. Add a user-agent header to simulate a browser request.
 
-#### Handle Errors and Exceptions
+### Handle Errors and Exceptions
 Ensure that your script can handle issues like **missing data**, **connection timeouts**, or **changes in the website structure**. Use try-except blocks or conditional checks.
