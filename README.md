@@ -1,2 +1,0 @@
-This repository is a documentation of methods that extract content from any website.
-To learn more about Web Scrapping, go to our [Wiki page](https://github.com/PK-004/Web-Scrapping/wiki/Web-Scrapping).
