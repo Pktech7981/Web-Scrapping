@@ -1,5 +1,4 @@
 ### Methods for Extracting Content from Websites
-
 ##### Manual Copy and Paste
 - Suitable for small amounts of data.
 - Easy to use when data is easily accessible.
